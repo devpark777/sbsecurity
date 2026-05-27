@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Write Article</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main class="container">
+  <h1>Write Article</h1>
+
+  <form action="/articles/write" method="post" th:object="${article}">
+    <label>Title</label>
+    <input type="text" th:field="*{title}" required>
+
+    <label>Content</label>
+    <textarea th:field="*{content}" rows="10" required></textarea>
+
+    <button type="submit">Save</button>
+  </form>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

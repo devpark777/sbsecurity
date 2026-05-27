@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::section}, '로그인')}">
+
+<section>
+  <h1>Login</h1>
+
+  <p class="error" th:if="${param.error}">
+    Email or password is incorrect.
+  </p>
+
+  <form action="/login" method="post">
+    <label>Email</label>
+    <input type="email" name="email" required>
+<!--    <input type="email" name="username" required>-->
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+</section>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Article Detail</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main class="container">
+    <h1 th:text="${article.title}">Title</h1>
+
+    <p>
+        Writer:
+        <strong th:text="${article.writer.name}">Writer</strong>
+    </p>
+
+    <hr>
+
+    <p th:text="${article.content}">Content</p>
+
+    <br>
+
+    <div sec:authorize="isAuthenticated()">
+        <a class="btn" th:href="@{/articles/edit/{id}(id=${article.id})}">
+            Edit
+        </a>
+
+        <form th:action="@{/articles/delete/{id}(id=${article.id})}"
+              method="post"
+              style="display:inline;">
+            <button class="btn-danger" type="submit">Delete</button>
+        </form>
+    </div>
+    <br>
+
+    <a class="btn" href="/articles">Back to List</a>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

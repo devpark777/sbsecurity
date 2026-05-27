@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+<header th:fragment="header">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">Chap5Security</a>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/articles">Articles</a></li>
+
+            <!-- 로그인 전-->
+            <li sec:authorize="isAnonymous()">
+                <a href="/members/register">SignUp</a>
+            </li>
+
+            <li sec:authorize="isAnonymous()">
+                <a href="/login">Login</a>
+            </li>
+
+            <!-- 로그인 후 -->
+            <li sec:authorize="isAuthenticated()">
+                <a href="/articles/write">Write Article</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+                <a href="/articles/my">My Articles</a>
+            </li>
+
+            <!-- ADMIN만 -->
+            <li sec:authorize="hasRole('ADMIN')">
+                <a href="/members">Members</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+                <a href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+</body>
+</html>
