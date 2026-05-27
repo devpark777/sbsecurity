@@ -52,7 +52,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // React 개발 서버 주소
-        config.setAllowedOrigins(List.of("https://hanbit.co.kr", "https://campus.co", "http://localhost:5173"));
+        config.setAllowedOrigins(List.of("https://hanbit.co.kr", "https://campus.co", "http://localhost:5173", "https://sbsecurity-production.up.railway.app"));
 //        config.setAllowedOrigins(List.of("https://hanbit.co.kr", "https://campus.co"));
 
         // 허용할 HTTP 메서드
