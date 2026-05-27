@@ -10,7 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-@Component
+// @Component
 @RequiredArgsConstructor
 public class DataInitializer implements ApplicationRunner {
     private final MemberRepository memberRepository;
@@ -25,7 +25,7 @@ public class DataInitializer implements ApplicationRunner {
                 .password(passwordEncoder.encode("111"))
                 .role("USER")
                 .build();
-        memberRepository.save(member1);
+       // memberRepository.save(member1);
 
         Member member2 = Member.builder()
                 .name("관리자")
@@ -33,7 +33,7 @@ public class DataInitializer implements ApplicationRunner {
                 .password(passwordEncoder.encode("111"))
                 .role("ADMIN")
                 .build();
-        memberRepository.save(member2);
+       // memberRepository.save(member2);
 
         Member member3 = Member.builder()
                 .name("홍길동")
@@ -41,18 +41,18 @@ public class DataInitializer implements ApplicationRunner {
                 .password(passwordEncoder.encode("111"))
                 .role("USER")
                 .build();
-        memberRepository.save(member3);
+       // memberRepository.save(member3);
 
-        articleRepository.save(Article.builder()
-                        .title("test")
-                        .content("내용이 여기에")
-                        .writer(member1)
-                .build());
+      //  articleRepository.save(Article.builder()
+      //                  .title("test")
+     //                   .content("내용이 여기에")
+      //                  .writer(member1)
+      //          .build());
 
-        articleRepository.save(Article.builder()
-                .title("test2")
-                .content("내용이 여기에")
-                .writer(member2)
-                .build());
+      //  articleRepository.save(Article.builder()
+       //         .title("test2")
+       //         .content("내용이 여기에")
+       //         .writer(member2)
+       //         .build());
     }
 }
